@@ -1,5 +1,7 @@
-export const dashboardPage = () => {
+export const DashboardPage = () => {
     return (
-        <div></div>
+        <div>
+            Dashboard
+        </div>
     );
 }

@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 import { TextInputComponent } from '../components/TextInputComponent';
@@ -31,6 +32,8 @@ interface LoginFormType {
 }
 
 export const LoginPage = () => {
+    const navigate = useNavigate();
+    
     const [isLoadding, setIsLoadding] = useState(false);
 
 
@@ -43,6 +46,8 @@ export const LoginPage = () => {
         setIsLoadding(() => true);
         await loginUser(data.email, data.password);
         setIsLoadding(() => false);
+
+        navigate('/dashboard');
     }, []);
 
 
