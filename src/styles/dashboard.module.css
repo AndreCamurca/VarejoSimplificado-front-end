@@ -3,6 +3,9 @@
     width: 100%;
     min-height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+
     font-family: var(--primary-font);
 }
 
@@ -91,6 +94,7 @@
 
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 
     display: flex;
     align-items: center;
@@ -122,9 +126,37 @@
     background: none;
 }
 
+.mainContent {
+    padding: 20px;
+}
 
 @media (max-width: 1024px) {
     .hiddenMenu {
         display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menuContainer {
+        position: relative;
+    }
+
+    .main {
+        display: grid;
+        grid-template-columns: 250px auto;
+        flex: 1;
+    }
+
+    .closeMenu,
+    .header .menuButton {
+        display: none;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .mainContent {
+        padding: 50px;
     }
 }
