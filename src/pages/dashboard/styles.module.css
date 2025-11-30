@@ -49,6 +49,11 @@
     background: var(--black-opacity);
 }
 
+.main {
+    background: var(--gray-500);
+    flex: 1;
+}
+
 .mainContent {
     padding: 20px;
 }
