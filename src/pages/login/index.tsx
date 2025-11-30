@@ -6,13 +6,13 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 
-import { TextInputComponent } from '../components/TextInputComponent';
-import { PasswordInputComponent } from '../components/PasswordInputComponent';
-import { ButtonComponent } from '../components/ButtonComponent';
-import { loginUser } from '../services/auth';
+import { TextInputComponent } from '../../components/TextInputComponent';
+import { PasswordInputComponent } from '../../components/PasswordInputComponent';
+import { ButtonComponent } from '../../components/ButtonComponent';
+import { loginUser } from '../../services/auth';
 
 
-import styles from '../styles/login.module.css'
+import styles from './styles.module.css'
 import LoginImageSVG from '../assets/login-image.svg'
 
 

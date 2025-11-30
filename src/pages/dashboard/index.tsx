@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 
 import { SideMenuComponent } from './components/SideMenuComponent';
-import styles from "../../styles/dashboard.module.css";
+import styles from "./styles.module.css";
 
 
 
