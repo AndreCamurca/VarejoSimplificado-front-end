@@ -1,6 +1,8 @@
 
 import styles from './styles.module.css';
 
+import { NotificationComponent } from '../../components/NotificationComponent';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -83,6 +85,8 @@ export const StaticsPage = () => {
                 <h3 className={ styles.chartTitle }>
                     Notificações:
                 </h3>
+
+                <NotificationComponent />
             </section>
         </div>
     )

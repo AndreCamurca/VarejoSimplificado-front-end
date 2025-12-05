@@ -1,0 +1,65 @@
+.mobileNotification {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.notification {
+    width: 100%;
+    padding: 10px;
+
+    font-family: var(--primary-font);
+}
+
+.notificationTitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.notificationDescription,
+.notificationDate {
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 10px 0;
+
+    color: var(--gray-550);
+}
+
+.notificationDate {
+    color: var(--gray-600);
+}
+
+.table {
+    display: none;
+    width: 100%;
+    font-family: var(--primary-font);
+}
+
+.table thead {
+    text-align: left;
+    font-size: 1.2rem;
+    height: 50px;
+}
+
+.table tbody {
+    font-size: 1rem;
+}
+
+.table tbody tr {
+    height: 60px;
+}
+
+.table tbody td {
+    padding: 0 5px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .mobileNotification {
+        display: none;
+    }
+
+    .table {
+        display: table;
+    }
+}
