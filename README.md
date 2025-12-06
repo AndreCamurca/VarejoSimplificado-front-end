@@ -20,6 +20,12 @@
 
 # Produtos
 
+![dashboard-desktop](https://github.com/Edmar-Sousa/VarejoSimplificado-front-end/blob/master/img/produtos-desktop.png)
+
+![dashboard-mobile](https://github.com/Edmar-Sousa/VarejoSimplificado-front-end/blob/master/img/produtos-mobile.png)
+
 # Detalhes do produto
 
+![dashboard-desktop](https://github.com/Edmar-Sousa/VarejoSimplificado-front-end/blob/master/img/detalhes-desktop.png)
 
+![dashboard-mobile](https://github.com/Edmar-Sousa/VarejoSimplificado-front-end/blob/master/img/detalhes-mobile.png)
