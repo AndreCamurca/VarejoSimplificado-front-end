@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { 
@@ -9,6 +9,8 @@ import {
 } from 'lucide-react'
 
 import { SideMenuComponent } from './components/SideMenuComponent';
+import { getProductCategories } from '../../services/products';
+
 import styles from "./styles.module.css";
 
 
@@ -46,6 +48,10 @@ export const DashboardPage = () => {
     const handlerHiddenMenu = useCallback(() => {
         setIsShowMenu(() => false);
     }, []);
+
+    useEffect(() => {
+        getProductCategories();
+    }, [])
 
     return (
         <div className={styles.dashboardContainer}>

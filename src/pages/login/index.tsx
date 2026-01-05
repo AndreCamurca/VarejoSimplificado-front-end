@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+import { useAuthStore } from '../../states/auth';
 
 import { TextInputComponent } from '../../components/TextInputComponent';
 import { PasswordInputComponent } from '../../components/PasswordInputComponent';
@@ -33,6 +34,10 @@ interface LoginFormType {
 
 export const LoginPage = () => {
     const navigate = useNavigate();
+
+    const setAuthenticated = useAuthStore((state) => state.setAuthenticated) 
+    const setAccessToken = useAuthStore((state) => state.setAccessToken);
+
     
     const [isLoadding, setIsLoadding] = useState(false);
 
@@ -43,11 +48,21 @@ export const LoginPage = () => {
 
 
     const onSubmit = useCallback(async (data: LoginFormType) => {
-        setIsLoadding(() => true);
-        await loginUser(data.email, data.password);
-        setIsLoadding(() => false);
+        try {
+            const response = await loginUser(data.email, data.password);
 
-        navigate('/dashboard');
+            setAuthenticated(true);
+            setAccessToken(response.access_token);
+            setIsLoadding(false);
+
+            navigate('/dashboard');
+        } 
+
+        catch (error) {
+            console.error('Erro ao fazer login:', error);
+            setIsLoadding(false);
+            return;
+        }
     }, []);
 
 

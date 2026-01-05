@@ -1,15 +1,19 @@
+import api from './api';
 
 interface LoginResponse {
-    accessToken: string;
+    access_token: string;
+    token_type: string;
 }
 
-export function loginUser(email: string, password: string): Promise<LoginResponse> {
-
-    console.log(email, password)
-
-    return new Promise((resolve) => {
-        setTimeout(() => resolve({ accessToken: '123' }), 1000);
+export async function loginUser(email: string, password: string): Promise<LoginResponse> {
+    const response = await api.post<LoginResponse>('/login', { 
+        email, 
+        password
     });
 
+    if (response.status !== 200)
+        throw new Error('Erro ao fazer login');
+
+    return response.data;
 }
 
