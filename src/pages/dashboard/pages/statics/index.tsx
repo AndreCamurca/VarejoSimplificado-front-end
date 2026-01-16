@@ -72,7 +72,7 @@ export const StaticsPage = () => {
                 </div>
 
                 <div className={ styles.barchartContainer }>
-                    <h3 className={ styles.chartTitle }>
+                    <h3 className='chartTitle'>
                         Grafico de vendas:
                     </h3>
 
@@ -82,7 +82,7 @@ export const StaticsPage = () => {
 
 
             <section className={ styles.notificationSection }>
-                <h3 className={ styles.chartTitle }>
+                <h3 className='chartTitle'>
                     Notificações:
                 </h3>
 

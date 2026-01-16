@@ -2,9 +2,6 @@ import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./styles.module.css";
 
-// ---------------------------------------------------------------------------
-// COMPONENTE PRINCIPAL
-// ---------------------------------------------------------------------------
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -69,10 +66,6 @@ export const ProductDetailsPage = () => {
   );
 };
 
-// ---------------------------------------------------------------------------
-// ABA PRINCIPAL
-// ---------------------------------------------------------------------------
-
 const PrincipalTab = ({
   id,
   titulo,
@@ -132,33 +125,19 @@ const PrincipalTab = ({
   );
 };
 
-// ---------------------------------------------------------------------------
-// ABA ESTOQUE
-// ---------------------------------------------------------------------------
 
 const EstoqueTab = () => {
   return <p className={styles.placeholder}>⚠ Em breve: Estoque</p>;
 };
 
-// ---------------------------------------------------------------------------
-// ABA PREÇO
-// ---------------------------------------------------------------------------
-
 const PrecoTab = () => {
   return <p className={styles.placeholder}>⚠ Em breve: Preço</p>;
 };
-
-// ---------------------------------------------------------------------------
-// ABA PERFORMANCE
-// ---------------------------------------------------------------------------
 
 const PerformanceTab = () => {
   return <p className={styles.placeholder}>⚠ Em breve: Performance</p>;
 };
 
-// ---------------------------------------------------------------------------
-// ABA COMPRAS
-// ---------------------------------------------------------------------------
 
 const ComprasTab = () => {
   return <p className={styles.placeholder}>⚠ Em breve: Compras</p>;

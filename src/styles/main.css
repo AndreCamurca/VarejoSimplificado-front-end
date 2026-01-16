@@ -11,9 +11,12 @@ html {
     --white: #fff;
 
     --black-opacity: rgba(0, 0, 0, 0.342);
+    --background-section: #ffffff;
 
     --gray-100: #A0A5BA;
     --gray-500: #F7F8F9;
+    --gray-510: #ececec;
+    --gray-520: #e1e1e1;
     --gray-550: #838799;
     --gray-600: #32343E;
     
@@ -27,4 +30,26 @@ html {
     --primary-font: Sen, Arial, Helvetica, sans-serif;
 
     font-size: 16px;
+}
+
+.chartTitle {
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+
+    color: var(--gray-600);
+}
+
+.skeleton-loadding {
+    background: linear-gradient(90deg, var(--gray-520) 25%, var(--gray-510) 50%, var(--gray-520) 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }

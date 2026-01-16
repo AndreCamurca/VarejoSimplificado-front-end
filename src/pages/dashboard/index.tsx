@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { 
     Menu,
     User,
+    PackageSearch,
     Package,
     Home,
 } from 'lucide-react'
@@ -24,9 +25,9 @@ const menuItems = [
         isAdminOnly: false
     },
     { 
-        path: '/categories/',
+        path: '/dashboard/categories',
         label: 'Categorias',
-        icon: Home,
+        icon: PackageSearch,
         ariaLabel: 'Ir para Categorias',
         isAdminOnly: true
     },

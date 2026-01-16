@@ -2,14 +2,6 @@
     width: 100%;
 }
 
-.chartTitle {
-    font-family: var(--primary-font);
-    font-size: 1.2rem;
-
-    margin-bottom: 30px;
-    color: var(--gray-600);
-}
-
 .barchartContainer {
     width: 100%;
     flex: 1;
@@ -17,7 +9,7 @@
     padding: 15px;
     border-radius: 15px;
 
-    background: var(--white);
+    background: var(--background-section);
 }
 
 .cards {
@@ -34,7 +26,7 @@
 
     border-radius: 15px;
     padding: 15px;
-    background: var(--white);
+    background: var(--background-section);
 }
 
 .cardValue,
@@ -61,7 +53,7 @@
     margin-top: 40px;
     border-radius: 15px;
 
-    background: var(--white);
+    background: var(--background-section);
 }
 
 
