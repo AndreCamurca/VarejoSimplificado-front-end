@@ -45,8 +45,11 @@ export const router = createBrowserRouter([
             { path: '', element: <StaticsPage />  },
             { path: 'users', element: <UsersPage />  },
             { path: 'products', element: <ProductsPage />  },
+            
             { path: 'categories', element: <ProductsCategoriesPage /> },
             { path: 'categories/add', element: <AddProductCategoryPage /> },
+
+            { path: 'products/add', element: <AddProductPage /> },
             { path: 'products/:id', element: <ProductDetailsPage />  },
             { path: 'users/add', element: <AddUserPage /> },
         ]

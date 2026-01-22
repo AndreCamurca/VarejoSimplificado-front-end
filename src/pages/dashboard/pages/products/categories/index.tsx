@@ -80,7 +80,7 @@ export const ProductsCategoriesPage = () => {
                     Categorias de Produtos
                 </h2>
 
-                <NavLink to='/dashboard/categories/add' className={styles.addCategoryButton}>
+                <NavLink to='/dashboard/categories/add' className='addButton'>
                     <Plus size={24} />
                     <p>Adicionar Nova Categoria</p>
                 </NavLink>

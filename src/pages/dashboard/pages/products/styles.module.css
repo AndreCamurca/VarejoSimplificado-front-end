@@ -46,3 +46,12 @@
 .btn:hover {
   background: #e36d00;
 }
+
+
+.headerTable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}

@@ -1,0 +1,29 @@
+
+.addButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    font-family: var(--font-family);
+
+    color: var(--white);
+    background-color: var(--orange-500);
+}
+
+.addButton p {
+    display: none;
+}
+
+.addButton:hover {
+    background-color: var(--orange-550);
+}
+
+@media (min-width: 768px) {
+    .addButton p {
+        display: block;
+    }
+}

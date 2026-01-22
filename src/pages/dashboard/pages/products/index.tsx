@@ -1,13 +1,14 @@
 import Axios from "axios";
 
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 import { TableComponent } from "../../../../components/TableComponent";
 import { deleteProductsById, getProductsAll, type ProductType } from "../../../../services/products";
 
 import styles from "./styles.module.css";
+import { Plus } from "lucide-react";
 
 
 const headers = [
@@ -58,7 +59,14 @@ export const ProductsPage = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Produtos</h2>
+      <div className={styles.headerTable}>
+        <h2 className={styles.title}>Produtos</h2>
+
+        <NavLink to='/dashboard/products/add' className='addButton'>
+            <Plus size={24} />
+            <p>Adicionar Novo Produto</p>
+        </NavLink>
+      </div>
 
       <TableComponent 
         isLoadding={isLoading} 

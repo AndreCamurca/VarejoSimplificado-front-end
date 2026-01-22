@@ -12,34 +12,6 @@
     margin-bottom: 20px;
 }
 
-.addCategoryButton {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-
-    font-family: var(--font-family);
-
-    color: var(--white);
-    background-color: var(--orange-500);
-}
-
-.addCategoryButton p {
-    display: none;
-}
-
-.addCategoryButton:hover {
-    background-color: var(--orange-550);
-}
-
-@media (min-width: 768px) {
-    .addCategoryButton p {
-        display: block;
-    }
-}
 
 .title {
     margin: 40px 0;
