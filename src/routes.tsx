@@ -15,10 +15,12 @@ import { useAuthStore } from './states/auth';
 import { validateToken } from './utils/token'
 
 const moddlewareAuth = () => {
-    const accessToken = useAuthStore.getState().accessToken;
+    const { accessToken, logoutUser } = useAuthStore.getState();
 
-    if (!validateToken(accessToken))
+    if (!validateToken(accessToken)) {
+        logoutUser();
         return redirect('/login');
+    }
 
     return null;
 }
