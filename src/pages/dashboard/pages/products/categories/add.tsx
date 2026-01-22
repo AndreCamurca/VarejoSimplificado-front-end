@@ -6,6 +6,7 @@ import { TextInputComponent } from "../../../../../components/TextInputComponent
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import styles from './styles.module.css';
 import { useCallback, useState } from 'react';
@@ -45,7 +46,10 @@ export const AddProductCategoryPage = () => {
                 description: form.description
             });
 
+            toast.success('Categoria adicionada com sucesso!');
             navigate('/dashboard/categories');
+        } catch {
+            toast.error('Erro ao adicionar categoria. Tente novamente.');
         } finally {
             setIsLoadding(false);
         }
