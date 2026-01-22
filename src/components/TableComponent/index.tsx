@@ -4,15 +4,12 @@ import styles from './styles.module.css'
 
 interface TableComponentProps {
     header: Array<{
+        column: string;
         label: string;
         className?: string;
     }>
 
-    productsCategories: Array<{
-        id: number;
-        name: string;
-        description: string;
-    }>
+    productsCategories: Array<any>;
 
     isLoadding: boolean;
 
@@ -67,10 +64,10 @@ export const TableComponent = (props: TableComponentProps) => {
 
                 {
                     !isLoadding && productsCategories.map((category) => (
-                        <tr key={ category.id }>
-                            <td>{ category.id }</td>
-                            <td>{ category.name }</td>
-                            <td>{ category.description }</td>
+                        <tr key={ category['id'] }>
+                            {header.map(col => (
+                                <td key={`${category['id']}-${col.column}`}>{ category[col.column] }</td>
+                            ))}
 
                             <td>
                                 <button 

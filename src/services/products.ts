@@ -43,7 +43,7 @@ export interface ProductType {
     business_id: number;
 }
 
-export async function getProducts(): Promise<Array<ProductType>> {
+export async function getProductsAll(): Promise<Array<ProductType>> {
     const response = await api.get('/products');
     return response.data;
 }

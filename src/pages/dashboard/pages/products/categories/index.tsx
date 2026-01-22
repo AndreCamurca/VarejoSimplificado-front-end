@@ -18,9 +18,9 @@ import { toast } from 'react-toastify';
 
 
 const header = [
-    {  label: 'ID' },
-    {  label: 'Nome' },
-    {  label: 'Descrição' },
+    { column: 'id',  label: 'ID' },
+    { column: 'name',  label: 'Nome' },
+    { column: 'description',  label: 'Descrição' },
 ];
 
 
