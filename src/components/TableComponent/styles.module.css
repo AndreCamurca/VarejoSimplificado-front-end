@@ -1,0 +1,63 @@
+.table {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--background-section);
+}
+
+.table thead th {
+    height: 40px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+
+    color: var(--gray-600);
+}
+
+.actionColumn {
+    width: 150px
+}
+
+.buttonAction {
+    width: 40px;
+    height: 40px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+
+    border-radius: 8px;
+    border: none;
+}
+
+.noDataCell {
+    padding-top: 30px;
+    text-align: center;
+
+    font-weight: 500;
+    font-size: 1.2rem;
+    font-family: var(--primary-font);
+
+    color: var(--gray-550);
+}
+
+.skeletonCell {
+    height: 40px;
+    border-radius: 4px;
+}
+
+.editButton {
+    color: var(--gray-600);
+    background-color: var(--light-blue-100);
+}
+
+.deleteButton {
+    color: var(--red-500);
+    background-color: var(--light-blue-100);
+}
+
+.buttonAction:hover {
+    filter: brightness(0.9);
+}

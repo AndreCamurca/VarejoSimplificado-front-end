@@ -1,7 +1,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Plus, SquarePen, Trash2, BrushCleaning } from 'lucide-react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Plus } from 'lucide-react';
+
+import Axios from 'axios';
 
 import { 
     getProductCategories, 
@@ -11,10 +13,19 @@ import {
 
 
 import styles from './styles.module.css'
+import { TableComponent } from '../../../../../components/TableComponent';
+import { toast } from 'react-toastify';
 
+
+const header = [
+    {  label: 'ID' },
+    {  label: 'Nome' },
+    {  label: 'Descrição' },
+];
 
 
 export const ProductsCategoriesPage = () => {
+    const navigator = useNavigate();
 
     const [isLoadding, setIsLoadding] = useState(true);
     const [productsCategories, setProductsCategories] = useState<Array<ProductCategoryType>>([]);
@@ -34,9 +45,26 @@ export const ProductsCategoriesPage = () => {
         }
     }
 
-    const handlerClickDelete = useCallback(async (categoryId: number) => {
-        await deleteProductCategory(categoryId);
-        handlerProductCategories();
+    const handlerClickEdit = useCallback((category: ProductCategoryType) => {
+        navigator('/dashboard/categories/add?id=' + category.id);
+    }, []);
+
+    const handlerClickDelete = useCallback(async (category: ProductCategoryType) => {
+        try {
+            const response = await deleteProductCategory(category.id);
+            toast.success(response.detail);
+        } 
+        catch (err) {
+            let message = 'Erro ao deletar a categoria de produto.';
+
+            if (Axios.isAxiosError(err))
+                message = err.response?.data?.detail;
+
+            toast.error(message);
+        }
+        finally {
+            handlerProductCategories();
+        }
     }, []);
 
     useEffect(() => {
@@ -58,62 +86,12 @@ export const ProductsCategoriesPage = () => {
                 </NavLink>
             </div>
 
-            <table className={ styles.table } cellSpacing={5}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome da Categoria</th>
-                        <th>Descrição</th>
-                        <th className={styles.actionColumn}>Ações</th>
-                    </tr>
-                </thead>
-            
-                <tbody>
-                    { 
-                        isLoadding && Array.from({ length: 10 }).map((_, index) => (
-                            <tr key={index}>
-                                <td className={ `${styles.skeletonCell} skeleton-loadding` }></td>
-                                <td className={ `${styles.skeletonCell} skeleton-loadding` }></td>
-                                <td className={ `${styles.skeletonCell} skeleton-loadding` }></td>
-                                <td className={ `${styles.skeletonCell} skeleton-loadding` }></td>
-                            </tr>
-                        ))
-                    }
-
-                    {
-                        !isLoadding && productsCategories.length === 0 && (
-                            <tr>
-                                <td colSpan={4} className={ styles.noDataCell }>
-                                    <BrushCleaning size={48} />
-                                    <br />
-                                    Nenhuma categoria de produto encontrada.
-                                </td>
-                            </tr>
-                        )
-                    }
-
-                    {
-                        !isLoadding && productsCategories.map((category) => (
-                            <tr key={ category.id }>
-                                <td>{ category.id }</td>
-                                <td>{ category.name }</td>
-                                <td>{ category.description }</td>
-                                <td>
-                                    <button className={ `${ styles.editButton } ${ styles.buttonAction }` }>
-                                        <SquarePen size={18} />
-                                    </button>
-
-                                    <button 
-                                        className={ `${ styles.deleteButton } ${ styles.buttonAction }` } 
-                                        onClick={() => handlerClickDelete(category.id)}>
-                                        <Trash2 size={18} />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+            <TableComponent 
+                header={header} 
+                isLoadding={isLoadding} 
+                productsCategories={productsCategories} 
+                handlerClickEdit={handlerClickEdit} 
+                handlerClickDelete={handlerClickDelete} />
         </div>
     );
 

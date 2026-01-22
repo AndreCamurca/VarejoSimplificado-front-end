@@ -43,11 +43,13 @@ interface TextInputComponentProps {
     label: string
     register: any;
     placeholder?: string
+    value?: string;
     
     icon?: LucideIcon
     errorMessage?: string;
     isError?: boolean;
 
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
     onClickIcon?: () => void
 }
 
@@ -60,9 +62,11 @@ export const TextInputComponent = (props: TextInputComponentProps) => {
         type,
         placeholder,
         icon,
+        value,
         isError,
         errorMessage,
         register,
+        onInput,
         onClickIcon,
     } = props
 
@@ -78,7 +82,9 @@ export const TextInputComponent = (props: TextInputComponentProps) => {
                     type={type} 
                     id={id} 
                     className={styles.input} 
-                    placeholder={placeholder} />
+                    placeholder={placeholder}
+                    value={value}
+                    onInput={onInput} />
 
                 <ButtonIcon Icon={icon} onClick={onClickIcon} />
             </div>
